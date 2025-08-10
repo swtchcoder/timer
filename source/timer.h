@@ -14,7 +14,6 @@ typedef struct {
 } timer_t;
 
 int timer_init(timer_t* timer, double tick_rate);
-
 unsigned int timer_tick(timer_t* timer);
 
 #ifdef __cplusplus

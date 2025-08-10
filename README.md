@@ -16,15 +16,17 @@ Here is an example of how you could then use it:
 
     int main() {
         timer_t timer;
+        unsigned int ticks;
+        unsigned int i;
 
-        if(!timer_init(&timer, 30)) {
-            fprintf(stderr, "Failed initializing timer\n");
+        if (!timer_init(&timer, 30)) {
+            fprintf(stderr, "failed initializing timer\n");
             return 1;
         }
 
         for (;;) {
-            unsigned int ticks = timer_tick(&timer);
-            for (unsigned int i = 0; i < ticks; i++) {
+            ticks = timer_tick(&timer);
+            for (i = 0; i < ticks; i++) {
                 printf("tick (%u)\n", ticks - i);
             }
         }
